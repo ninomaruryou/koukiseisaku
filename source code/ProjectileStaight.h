@@ -1,0 +1,27 @@
+#pragma once
+
+#include "Projectile.h"
+#include "Models.h"
+
+//íºêiíeä€
+class ProjectileStaight : public Projectile
+{
+public:
+	ProjectileStaight(ProjectileManager* manager);
+	//ProjectileStaight();
+	~ProjectileStaight();
+
+	//çXêVèàóù
+	virtual void Updata(float elapsedTime) override;
+
+	//ï`é èàóù
+	virtual void Render(ID3D11DeviceContext* dc,float elapsed_time) override;
+
+	//î≠éÀ
+	void Launch(const DirectX::XMFLOAT3& direction, const DirectX::XMFLOAT3& positon);
+
+private:
+	Charater_model* model = nullptr;
+	float speed = 10.0f;
+	float lifeTime = 6.0;
+};
